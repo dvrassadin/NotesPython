@@ -1,7 +1,6 @@
 from abc import ABC, abstractmethod
 from typing import List
 from models.note import Note
-
 from presenters.view_observer import View_observer
 
 
@@ -13,5 +12,13 @@ class View(ABC):
         pass
 
     @abstractmethod
-    def show_all_notes(notes: List[Note]):
+    def show_notes(self, notes: List[Note]):
+        pass
+
+    @abstractmethod
+    def show_adding(self):
+        pass
+
+    @abstractmethod
+    def show_deleting(self, notes: List[Note]) -> int:
         pass

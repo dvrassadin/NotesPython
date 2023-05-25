@@ -1,5 +1,4 @@
 from typing import List
-
 from models.note import Note
 from presenters.model import Model
 from presenters.view import View
@@ -19,5 +18,17 @@ class Presenter(View_observer):
         self.notes = self.model.load_data()
         self.view.show_main_menu()
 
-    def show_all_notes(self):
-        self.view.show_all_notes(self.notes)
+    def on_show_all_notes(self):
+        self.view.show_notes(self.notes)
+
+    def on_add_note(self):
+        titleAndBody = self.view.show_adding()
+        self.model.add_note(
+            notes=self.notes, title=titleAndBody[0], body=titleAndBody[1])
+
+    def on_edit_note(self):
+        pass
+
+    def on_delete_note(self):
+        self.model.delete_note(
+            notes=self.notes, index=self.view.show_deleting(self.notes))

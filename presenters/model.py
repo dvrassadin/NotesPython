@@ -12,3 +12,11 @@ class Model(ABC):
     @abstractmethod
     def save_data(self, notes: List[Note]):
         pass
+
+    @abstractmethod
+    def add_note(self, notes: List[Note], title: str, body: str):
+        pass
+
+    @abstractmethod
+    def delete_note(self, notes: List[Note], index):
+        pass
