@@ -8,21 +8,15 @@
         },
         {
             "id": 2,
-            "date": "24.05.2023 17:30:12",
-            "title": "Second one",
-            "body": "This is the second note!"
+            "date": "25.05.2023 19:06:32",
+            "title": "Second one =)",
+            "body": "This is the second note!!!"
         },
         {
             "id": 3,
-            "date": "24.05.2023 20:02:10",
-            "title": "Third!!!",
-            "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
-        },
-        {
-            "id": 4,
-            "date": "25.05.2023 12:55:07",
-            "title": "The fourth note",
-            "body": "Hello!"
+            "date": "25.05.2023 18:27:19",
+            "title": "Groceries",
+            "body": "Bread, oil, cupcakes"
         }
     ]
 }

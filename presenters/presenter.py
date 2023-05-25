@@ -27,8 +27,15 @@ class Presenter(View_observer):
             notes=self.notes, title=titleAndBody[0], body=titleAndBody[1])
 
     def on_edit_note(self):
-        pass
+        self.view.show_short_notes(self.notes)
+        response = self.view.show_editing(self.notes)
+        if response is not None:
+            self.model.edit_note(notes=self.notes,
+                                index=response[0],
+                                isTitle=response[1],
+                                newText=response[2])
 
     def on_delete_note(self):
-        self.model.delete_note(
-            notes=self.notes, index=self.view.show_deleting(self.notes))
+        self.view.show_short_notes(self.notes)
+        index = self.view.show_deleting(self.notes)
+        self.model.delete_note(notes=self.notes, index=index)

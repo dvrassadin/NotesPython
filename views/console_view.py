@@ -24,7 +24,7 @@ class Console_view(View):
             elif action == "4":
                 self.observer.on_delete_note()
             else:
-                print("The number is incorrect\n")
+                print("The number is incorrect.")
 
     def show_notes(self, notes: List[Note]):
         if notes:
@@ -38,21 +38,63 @@ class Console_view(View):
         body = input("Enter text of the note:\n")
         return (title, body)
 
-    def show_deleting(self, notes: List[Note]) -> int:
+    def show_short_notes(self, notes: List[Note]):
         if notes:
             for note in notes:
                 print(f"{note.id}\t{note.date} {note.title}")
+        else:
+            print("There are no notes.")
+
+    def show_deleting(self, notes: List[Note]) -> int:
+        if notes:
             while True:
                 index = input(
                     "Enter the number of note you want to delete or 0 to cancel: ")
                 if index.isdigit():
                     intIndex = int(index)
                     if intIndex == 0:
-                        break
+                        return
                     elif intIndex > len(notes) or intIndex < 1:
                         print("This is the wrong number, enter another number: ")
                     else:
                         return intIndex - 1
 
-        else:
-            print("There are no notes.")
+    def show_editing(self, notes: List[Note]):
+        realIndex: int
+        isTitle: bool
+
+        while True:
+            index = input(
+                "Enter the number of note you want to edit or 0 to cancel: ")
+            if index.isdigit():
+                intIndex = int(index)
+                if intIndex == 0:
+                    return
+                elif intIndex > len(notes) or intIndex < 1:
+                    print("This is the wrong number, enter another number: ")
+                else:
+                    realIndex = intIndex - 1
+                    break
+
+        print(notes[realIndex])
+
+        while True:
+            attribute = input('''Enter what you want to change:
+1 — Title
+2 — Text
+0 — Cancel
+>>> ''')
+            if attribute == "0":
+                return
+            elif attribute == "1":
+                isTitle = True
+                break
+            elif attribute == "2":
+                isTitle = False
+                break
+            else:
+                print("This is the wrong number, enter another number: ")
+
+        newText = input("Enter new text:\n")
+
+        return (realIndex, isTitle, newText)

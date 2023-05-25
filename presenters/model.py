@@ -20,3 +20,7 @@ class Model(ABC):
     @abstractmethod
     def delete_note(self, notes: List[Note], index):
         pass
+
+    @abstractmethod
+    def edit_note(self, notes: List[Note], index: int, isTitle: bool, newText: str):
+        pass

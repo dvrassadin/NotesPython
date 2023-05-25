@@ -46,11 +46,20 @@ class Note_model(Model):
         self.save_data(notes)
 
     def delete_note(self, notes: List[Note], index):
-        if index >= 0 and index < len(notes):
+        if index is not None and index >= 0 and index < len(notes):
             notes.pop(index)
             self.lastID = index
             for i in range(index, len(notes)):
                 self.lastID += 1
                 notes[i].id = self.lastID
+            self.save_data(notes)
+
+    def edit_note(self, notes: List[Note], index: int, isTitle: bool, newText: str):
+        if index is not None and isTitle is not None and newText is not None:
+            if isTitle:
+                notes[index].title = newText
+            else:
+                notes[index].body = newText
+            notes[index].date = datetime.now()
             self.save_data(notes)
         

@@ -16,9 +16,17 @@ class View(ABC):
         pass
 
     @abstractmethod
+    def show_short_notes(self, notes: List[Note]):
+        pass
+
+    @abstractmethod
     def show_adding(self):
         pass
 
     @abstractmethod
     def show_deleting(self, notes: List[Note]) -> int:
+        pass
+
+    @abstractmethod
+    def show_editing(self, notes: List[Note]):
         pass
