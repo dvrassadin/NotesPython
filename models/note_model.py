@@ -62,4 +62,11 @@ class Note_model(Model):
                 notes[index].body = newText
             notes[index].date = datetime.now()
             self.save_data(notes)
-        
+
+    def find_by_date(self, notes: List[Note], date: str) -> List[Note]:
+        sortedNotes: List[Note] = []
+        for note in notes:
+            if note.date.date() == datetime.strptime(date, "%d.%m.%Y").date():
+                sortedNotes.append(note)
+
+        return sortedNotes

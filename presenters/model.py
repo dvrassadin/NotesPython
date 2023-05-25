@@ -1,6 +1,5 @@
 from abc import ABC, abstractmethod
 from typing import List
-
 from models.note import Note
 
 
@@ -23,4 +22,8 @@ class Model(ABC):
 
     @abstractmethod
     def edit_note(self, notes: List[Note], index: int, isTitle: bool, newText: str):
+        pass
+
+    @abstractmethod
+    def find_by_date(self, notes: List[Note], date: str) -> List[Note]:
         pass

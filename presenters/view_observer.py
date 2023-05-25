@@ -17,3 +17,7 @@ class View_observer(ABC):
     @abstractmethod
     def on_delete_note(self):
         pass
+
+    @abstractmethod
+    def on_find_by_date(self):
+        pass

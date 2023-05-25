@@ -11,6 +11,7 @@ class Console_view(View):
 2 — Add a note
 3 - Edit a note
 4 - Delete a note
+5 - Find by date
 0 — Exit
 >>> ''')
             if action == "0":
@@ -23,6 +24,8 @@ class Console_view(View):
                 self.observer.on_edit_note()
             elif action == "4":
                 self.observer.on_delete_note()
+            elif action == "5":
+                self.observer.on_find_by_date()
             else:
                 print("The number is incorrect.")
 
@@ -98,3 +101,11 @@ class Console_view(View):
         newText = input("Enter new text:\n")
 
         return (realIndex, isTitle, newText)
+
+
+    def show_date_entering(self) -> str:
+        return input("Enter the date like dd.mm.yyyy: ")
+
+
+    def show_date_format_error(self):
+        print("The date format is incorrect.\n")

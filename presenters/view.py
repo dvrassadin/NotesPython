@@ -30,3 +30,11 @@ class View(ABC):
     @abstractmethod
     def show_editing(self, notes: List[Note]):
         pass
+
+    @abstractmethod
+    def show_date_entering(self) -> str:
+        pass
+
+    @abstractmethod
+    def show_date_format_error(self):
+        pass
